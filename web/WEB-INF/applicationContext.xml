@@ -3,4 +3,10 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <!--dao service全是单列的,没有状态只有方法 singleton即可-->
+    <bean class="com.cjl.impl.LoginServiceImpl" id="sloginService"></bean>
+
+    <bean class="com.cjl.action.LoginAction" id="sloginAction" scope="prototype">
+        <property name="service" ref="sloginService"></property>
+    </bean>
 </beans>
